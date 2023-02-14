@@ -6,6 +6,9 @@ response = requests.get(URL)
 soup = BeautifulSoup(response.text, 'html.parser')
 
 def champion_names():
+    '''Returns a list of all of the champion names in League of Legends
+    Indexes match the champion release years in the release_year() list below'''
+    
     table = soup.find('table', {'class': 'article-table'})
     body = table.find('tbody')
     rows = body.find_all('tr')
@@ -23,6 +26,9 @@ def champion_names():
 
 
 def release_year():
+    '''Returns a list of years in which the champions were released. 
+    Indexes match the champion names in the champion_names() list above'''
+
     table = soup.find('table', {'class': 'article-table'})
     body = table.find('tbody')
     rows = body.find_all('tr')
