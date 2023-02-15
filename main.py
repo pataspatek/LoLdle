@@ -33,7 +33,9 @@ def main():
         
         # Show the remaining champions
         print()
-        print(", ".join(champ[0] for champ in champ_list))
+        for remaining in champ_list:
+            print(remaining)
+        print()
 
     print(f"Your champion is {champ_list[0][0]}!")
 
@@ -50,7 +52,7 @@ def remove_champs(champ_list):
     remove = input("What do you want to remove? ").lower()
 
     new_list = []
-
+    
     for champ in champ_list:
         if remove not in champ:
             new_list.append(champ)
@@ -74,7 +76,7 @@ def confirm_champs(champ_list):
     for champ in champ_list:
         if confirm in champ:
             new_list.append(champ)
-            
+
     return new_list
 
 
